@@ -71,25 +71,21 @@ void loop()
     distanceObstacleCmFrontRight = calculation;
     ultrassonico(frontLeft);
     distanceObstacleCmFrontLeft = calculation;
-    Serial.println("Novo valor");
     if ((distanceObstacleCm >= 40) && (distanceObstacleCmFrontRight >= 40) && (distanceObstacleCmFrontLeft >= 40))
     {
         while (distanceObstacleCm > 40)
         {
-            Serial.println("Primeiro while");
             walkForward();
             ultrassonico(front);
             distanceObstacleCm = calculation;
             if (distanceObstacleCm <= 40)
             {
-              Serial.println("obstaculo a frente");
                 stopCar();
                 break;            }
             ultrassonico(frontRight);
             distanceObstacleCmFrontRight = calculation;
             if (distanceObstacleCmFrontRight <= 40)
             {
-                Serial.println("obstaculo a frente a direita");
                 stopCar();
                 break;
             }
@@ -97,7 +93,6 @@ void loop()
             distanceObstacleCmFrontLeft = calculation;
             if (distanceObstacleCmFrontLeft <= 40)
             {
-                Serial.println("obstaculo a frente a esquerda");
                 stopCar();
                 break;
             }
@@ -117,7 +112,6 @@ void loop()
         {
             for (int i = 0; i <= 72; i++)
             {
-                Serial.println("virando a esquerda");
                 digitalWrite(wheelsLeftForwardIN1, LOW);
                 digitalWrite(wheelsLeftReverseIN2, HIGH);
                 digitalWrite(wheelsRigthForwardIN3, HIGH);
@@ -126,7 +120,6 @@ void loop()
             }
             while (distanceObstacleCm >= 40)
             {
-                Serial.println("andando esquerda");
                 walkForward();
                 ultrassonico(front);
                 distanceObstacleCm = calculation;
@@ -139,7 +132,6 @@ void loop()
                 distanceObstacleCmFrontRight = calculation;
                 if (distanceObstacleCmFrontRight <= 40)
                 {
-                    Serial.println("obstaculo a direita na esqerda");
                     stopCar();
                     break;
                 }
@@ -147,7 +139,6 @@ void loop()
                 distanceObstacleCmFrontLeft = calculation;
                 if (distanceObstacleCmFrontLeft <= 40)
                 {
-                    Serial.println("obstaculo a esquerda na direira");
                     stopCar();
                     break;
                 }
@@ -157,7 +148,6 @@ void loop()
         {
             for (int i = 0; i <= 70; i++)
             {
-                Serial.println("virando a direita");
                 digitalWrite(wheelsLeftForwardIN1, HIGH);
                 digitalWrite(wheelsLeftReverseIN2, LOW);
                 digitalWrite(wheelsRigthForwardIN3, LOW);
@@ -165,14 +155,12 @@ void loop()
                 distanceObstacleCm = 50;
             }
             while (distanceObstacleCm >= 40)
-            { 
-                 Serial.println("andando direita");
+            {
                 walkForward();
                 ultrassonico(front);
                 distanceObstacleCm = calculation;
                 if (distanceObstacleCm <= 40)
                 {
-                    Serial.println("obstaculo a frente");
                     stopCar();
                     break;
                 }
@@ -180,7 +168,6 @@ void loop()
                 distanceObstacleCmFrontRight = calculation;
                 if (distanceObstacleCmFrontRight <= 40)
                 {
-                    Serial.println("obstaculo a direita na direita");
                     stopCar();
                     break;
                 }
@@ -188,7 +175,6 @@ void loop()
                 distanceObstacleCmFrontLeft = calculation;
                 if (distanceObstacleCmFrontLeft <= 40)
                 {
-                Serial.println("obstaculo a esquerda na direira");
                 stopCar();
                 break;
                 }
